@@ -41,14 +41,23 @@ public class Car {
         color = clr;
     }
 
+    /**
+     * Starts the engine of the car
+     */
     public void startEngine(){
         currentSpeed = 0.1;
     }
 
+    /**
+     * Stops the engine of the car
+     */
     public void stopEngine(){
         currentSpeed = 0;
     }
 
+    /**
+     * @return Returns the speedfactor of the car
+     */
     public abstract double speedFactor();
 
     protected abstract void incrementSpeed(double amount);

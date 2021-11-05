@@ -20,12 +20,4 @@ public class NySaab extends Car{
         }
         return getEnginePower() * 0.01 * turbo;
     }
-
-    protected void incrementSpeed(double amount){
-        setCurrentSpeed(getCurrentSpeed()+speedFactor()*amount);
-    }
-
-    protected void decrementSpeed(double amount){
-        setCurrentSpeed(getCurrentSpeed()-speedFactor()*amount);
-    }
 }
