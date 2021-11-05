@@ -1,6 +1,6 @@
 import java.awt.*;
 
-public class Saab95{
+public class Saab95 implements CarInterface {
 
     public boolean turboOn;
     public int nrDoors; // Number of doors on the car
@@ -21,9 +21,8 @@ public class Saab95{
     public int getNrDoors(){
         return nrDoors;
     }
-    public double getEnginePower(){
-        return enginePower;
-    }
+
+    public double getEnginePower(){return enginePower; }
 
     public double getCurrentSpeed(){
         return currentSpeed;
