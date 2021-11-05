@@ -63,10 +63,17 @@ abstract public class Car implements Movable{
      */
     protected void setCurrentSpeed(double speed) { currentSpeed = speed;}
 
+    /**
+     * @return Returns the color of the car
+     */
     public Color getColor(){
         return color;
     }
 
+    /**
+     * @param clr the color the car will have
+     * Changes the color of the car
+     */
     public void setColor(Color clr){
         color = clr;
     }
