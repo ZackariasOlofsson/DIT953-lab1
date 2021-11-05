@@ -49,8 +49,10 @@ public class Car {
         currentSpeed = 0;
     }
 
-    public double speedfactor(){ //
-        return 1; // vad ska skrivas här när vi inte använder metoden här?
-    }
+    public abstract double speedFactor();
+
+    protected abstract void incrementSpeed(double amount);
+
+    protected abstract void decrementSpeed(double amount);
 
 }

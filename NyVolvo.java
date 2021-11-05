@@ -11,8 +11,7 @@ public class Nyvolvo extends Car{
     }
 
     // metoder
-    @Override
-    public double speedfactor(){
+    public double speedFactor(){
         return getEnginePower() * 0.01 * trimFactor;
     }
 }
