@@ -1,9 +1,7 @@
 import java.awt.*;
 
-// har skrivit in instansvariabler, konstruktorer och metoder i superklassen, och skapat två nya subklasser
-
 /**
- * Main class
+ * Super class
  */
 abstract public class Car implements Movable{
 
