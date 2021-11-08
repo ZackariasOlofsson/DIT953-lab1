@@ -1,24 +1,42 @@
 import java.awt.*;
 
+/**
+ * Subklass för Saab95
+ */
 public class NySaab extends Car{
 
-    // instansvariabler
+    /**
+     * Variabler
+     */
     private boolean turboOn = false;
 
-    //konstruktor
+    /**
+     * Konstruktor för Saab95
+     */
     public NySaab(){
         super(2,125, Color.red, "saab123");
     }
 
+    /**
+     * @param nrDoors Number of doors on the car.
+     * @param enginePower The engine power of the car.
+     * @param color The color of the car.
+     * @param modelName The model of the car.
+     */
     public NySaab(int nrDoors, int enginePower, Color color, String modelName) {
         super(nrDoors, enginePower, color, modelName);
     }
 
-    // metoder
+    /**
+     * Starta turbo
+     */
     public void setTurboOn(){
         turboOn = true;
     }
 
+    /**
+     * Stäng av turbo
+     */
     public void setTurboOff(){
         turboOn = false;
     }
