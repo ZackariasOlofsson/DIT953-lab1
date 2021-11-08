@@ -7,46 +7,46 @@ public class TestCar {
     private NyVolvo car;
 
     @Before
-    public void init(){
+    public void init() {
         car = new NyVolvo();
     }
 
     @Test
-    public void testGetNrDoors(){
-        assert(4 == car.getNrDoors());
+    public void testGetNrDoors() {
+        assert (4 == car.getNrDoors());
     }
 
     @Test
-    public void testGetColor(){
-        assert(Color.black == car.getColor());
+    public void testGetColor() {
+        assert (Color.black == car.getColor());
     }
 
     @Test
-    public void testGetEnginePower(){
-        assert(100 == car.getEnginePower());
+    public void testGetEnginePower() {
+        assert (100 == car.getEnginePower());
     }
 
     @Test
-    public void testGetCurrentSpeed(){
-        assert(0==car.getCurrentSpeed());
+    public void testGetCurrentSpeed() {
+        assert (0 == car.getCurrentSpeed());
     }
 
     @Test
-    public void testSetCurrentSpeed(){
+    public void testSetCurrentSpeed() {
         car.setCurrentSpeed(5.5);
-        assert(5.5==car.getCurrentSpeed());
+        assert (5.5 == car.getCurrentSpeed());
     }
 
     @Test
-    public void testSetColor(){
+    public void testSetColor() {
         car.setColor(Color.blue);
-        assert(Color.blue == car.getColor());
+        assert (Color.blue == car.getColor());
     }
 
     @Test
-    public void testStartEngine(){
+    public void testStartEngine() {
         car.startEngine();
-        assert(0.1==car.getCurrentSpeed());
+        assert (0.1 == car.getCurrentSpeed());
     }
 
     @Test
@@ -56,7 +56,7 @@ public class TestCar {
         double speedEnergy = car.getCurrentSpeed();
         car.gas(gasAmount);
 
-        assert car.getCurrentSpeed() == Math.min(speedEnergy + car.speedFactor()*gasAmount, car.getEnginePower());
+        assert car.getCurrentSpeed() == Math.min(speedEnergy + car.speedFactor() * gasAmount, car.getEnginePower());
     }
 
     @Test(expected = IllegalArgumentException.class)
@@ -66,28 +66,44 @@ public class TestCar {
     }
 
     @Test
-    public void testTurnLeft(){
-        car.turnLeft();
-        assert(car.getDirection()==3);
-        car.turnLeft();
-        assert(car.getDirection()==2);
-        car.turnLeft();
-        assert(car.getDirection()==1);
-        car.turnLeft();
-        assert(car.getDirection()==0);
+    public void testBrake() {
+        double breakAmount = 0.6;
+        car.startEngine();
+        car.gas(1);
+        double speed = car.getCurrentSpeed();
+        car.brake(breakAmount);
+
+        assert car.getCurrentSpeed() == Math.max(speed - car.speedFactor() * breakAmount, 0);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testInvalidBrake() {
+        double brakeAmount = -3.1;
+        car.startEngine();
+        car.brake(brakeAmount);
     }
 
     @Test
-    public void testTurnRight(){
-        car.turnRight();
-        assert(car.getDirection()==1);
-        car.turnRight();
-        assert(car.getDirection()==2);
-        car.turnRight();
-        assert(car.getDirection()==3);
-        car.turnRight();
-        assert(car.getDirection()==0);
+    public void testTurnLeft() {
+        car.turnLeft();
+        assert (car.getDirection() == 3);
+        car.turnLeft();
+        assert (car.getDirection() == 2);
+        car.turnLeft();
+        assert (car.getDirection() == 1);
+        car.turnLeft();
+        assert (car.getDirection() == 0);
     }
 
+    @Test
+    public void testTurnRight() {
+        car.turnRight();
+        assert (car.getDirection() == 1);
+        car.turnRight();
+        assert (car.getDirection() == 2);
+        car.turnRight();
+        assert (car.getDirection() == 3);
+        car.turnRight();
+        assert (car.getDirection() == 0);
+    }
 }
-
