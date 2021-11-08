@@ -74,4 +74,29 @@ public class TestCar {
     public void TestGetY(){
         assert(0==car.getY());
     }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testInvalidGas() {
+        double gasAmount = -0.1;
+        car.gas(gasAmount);
+    }
+
+    @Test
+    public void testBrake() {
+        double breakAmount = 0.6;
+        car.startEngine();
+        car.gas(1);
+        double speed = car.getCurrentSpeed();
+        car.brake(breakAmount);
+
+        assert car.getCurrentSpeed() == Math.max(speed - car.speedFactor()*breakAmount,0);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testInvalidBrake(){
+        double brakeAmount = -3.1;
+        car.startEngine();
+        car.brake(brakeAmount);
+    }
+
 }
