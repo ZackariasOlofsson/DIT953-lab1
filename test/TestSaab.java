@@ -1,6 +1,8 @@
 import org.junit.Before;
 import org.junit.Test;
 
+import java.awt.*;
+
 public class TestSaab {
     private NySaab saab;
 
@@ -30,6 +32,17 @@ public class TestSaab {
 
     @Test
     public void testCustomSaab() {
+        int doors = 5;
+        int enginePower = 420;
+        Color c = Color.black;
+        String model = "SaabSpeed";
+
+        NySaab cSaab = new NySaab(doors, enginePower, c, model);
+
+        assert cSaab.getNrDoors() == doors;
+        assert cSaab.getColor().equals(c);
+        assert cSaab.getEnginePower() == enginePower;
+        assert cSaab.getModelName().equals(model);
 
     }
 }
