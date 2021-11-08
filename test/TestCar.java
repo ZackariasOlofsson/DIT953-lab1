@@ -48,4 +48,14 @@ public class TestCar {
         car.startEngine();
         assert(0.1==car.getCurrentSpeed());
     }
+
+    @Test
+    public void testGas() {
+        double gasAmount = 0.3;
+        car.startEngine();
+        double speedEnergy = car.getCurrentSpeed();
+        car.gas(gasAmount);
+
+        assert car.getCurrentSpeed() == Math.min(speedEnergy + car.speedFactor()*gasAmount, car.getEnginePower());
+    }
 }
