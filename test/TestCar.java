@@ -23,6 +23,29 @@ public class TestCar {
 
     @Test
     public void testGetEnginePower(){
+        assert(100 == car.getEnginePower());
+    }
 
+    @Test
+    public void testGetCurrentSpeed(){
+        assert(0==car.getCurrentSpeed());
+    }
+
+    @Test
+    public void testSetCurrentSpeed(){
+        car.setCurrentSpeed(5.5);
+        assert(5.5==car.getCurrentSpeed());
+    }
+
+    @Test
+    public void testSetColor(){
+        car.setColor(Color.blue);
+        assert(Color.blue == car.getColor());
+    }
+
+    @Test
+    public void testStartEngine(){
+        car.startEngine();
+        assert(0.1==car.getCurrentSpeed());
     }
 }
