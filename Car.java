@@ -8,7 +8,6 @@ abstract public class Car implements Movable{
     /**
      * Variables
      */
-    // instansvariabler
     private final int nrDoors; // Number of doors on the car
     private final double enginePower; // Engine power of the car
     private double currentSpeed; // The current speed of the car
@@ -25,7 +24,6 @@ abstract public class Car implements Movable{
      * @param color The color of the car.
      * @param modelName The model of the car.
      */
-    // konstruktor
     protected Car(int nrDoors, double enginePower, Color color, String modelName){
         this.nrDoors=nrDoors;
         this.enginePower=enginePower;
@@ -37,7 +35,6 @@ abstract public class Car implements Movable{
     /**
      * @return The number of doors on the car.
      */
-    // metoder
     public int getNrDoors(){
         return this.nrDoors;
     }
