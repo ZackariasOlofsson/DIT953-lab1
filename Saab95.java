@@ -1,23 +1,27 @@
 import java.awt.*;
 
 /**
- * Subklass för Saab95
+ * Subclass for Saab95
  */
 public class Saab95 extends Car{
 
     /**
-     * Variabler
+     * Variables
      */
     private boolean turboOn = false;
+    private final static double turboOnFactor = 1.3;
+    private final static double turboOffFactor = 1;
+    private final static double engineFactor = 0.01;
 
     /**
-     * Konstruktor för Saab95
+     * Default constructor
      */
     public Saab95(){
         super(2,125, Color.red, "saab123");
     }
 
     /**
+     * Constructor for specific properties
      * @param nrDoors Number of doors on the car.
      * @param enginePower The engine power of the car.
      * @param color The color of the car.
@@ -28,20 +32,24 @@ public class Saab95 extends Car{
     }
 
     /**
-     * Starta turbo
+     * Turn on the turbo
      */
     public void setTurboOn(){
         turboOn = true;
     }
 
     /**
-     * Stäng av turbo
+     * Turn off the turbo
      */
     public void setTurboOff(){
         turboOn = false;
     }
 
+    /**
+     * A method calculating the speed factor as a product of the engine power, engine factor and turbo factor.
+     * @return The speed factor.
+     */
     public double speedFactor() {
-        return getEnginePower() * 0.01 * (turboOn ? 1.3 : 1);
+        return getEnginePower() * engineFactor * (turboOn ? turboOnFactor : turboOffFactor);
     }
 }

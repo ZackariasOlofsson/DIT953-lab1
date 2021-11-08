@@ -1,7 +1,7 @@
 import java.awt.*;
 
 /**
- *
+ * The Car class contains fundamental methods required to describe the behaviour of a simple car.
  */
 abstract public class Car implements Movable{
 
@@ -19,6 +19,7 @@ abstract public class Car implements Movable{
 
 
     /**
+     * Constructor for a simple car with basic functionality
      * @param nrDoors Number of doors on the car.
      * @param enginePower The engine power of the car.
      * @param color The color of the car.
@@ -33,6 +34,7 @@ abstract public class Car implements Movable{
     }
 
     /**
+     * Gets the number of doors on the car.
      * @return The number of doors on the car.
      */
     public int getNrDoors(){
@@ -40,6 +42,7 @@ abstract public class Car implements Movable{
     }
 
     /**
+     * Gets the engine power of the car.
      * @return The engine power of the car.
      */
     public double getEnginePower(){
@@ -47,6 +50,7 @@ abstract public class Car implements Movable{
     }
 
     /**
+     * Gets the current speed of the car.
      * @return The current speed of the car.
      */
     public double getCurrentSpeed(){
@@ -54,62 +58,66 @@ abstract public class Car implements Movable{
     }
 
     /**
+     * Sets the current speed of the car to the value of the argument.
      * @param speed The new speed of the car.
      */
     protected void setCurrentSpeed(double speed) { currentSpeed = speed;}
 
     /**
-     * @return The color of the car
+     * Gets the color of the car.
+     * @return The color of the car.
      */
     public Color getColor(){
         return color;
     }
 
     /**
+     * Sets the color of the car to the given argument.
      * @param clr the color the car will have
-     * Changes the color of the car
      */
     public void setColor(Color clr){
         color = clr;
     }
 
     /**
-     * Starts the engine of the car
+     * Starts the engine of the car, setting the current speed to 0,1.
      */
     public void startEngine(){
         currentSpeed = 0.1;
     }
 
     /**
-     * Stops the engine of the car
+     * Stops the engine of the car, setting the current speed to 0.
      */
     public void stopEngine(){
         currentSpeed = 0;
     }
 
     /**
-     * @return The speedfactor of the car
+     * Gets the speed factor of the car.
+     * @return The speed factor of the car
      */
     public abstract double speedFactor();
 
     /**
-     * @param amount the percentage to use for increment of the speed, [0,1]
-     * Increases the current speed of the car
+     * Increases the speed of the car by the speed factor times the argument up to a maximum of the cars' engine power.
+     * @param amount The percentage of the speed factor to increase the speed with [0,1]
      */
     private void incrementSpeed(double amount){
         setCurrentSpeed(Math.min(getCurrentSpeed() + speedFactor() * amount, getEnginePower()));
     }
 
     /**
-     * @param amount percentage [0,1].
-     * Decreases the speed by the speed factor times a given percentage.
+     * Decreases the speed of the car by the speed factor times the argument down to a minimum of 0.
+     * @param amount The percentage of the speed factor to decrease the speed with [0,1].
      */
     private void decrementSpeed(double amount){
         setCurrentSpeed(Math.max(getCurrentSpeed() - speedFactor() * amount,0));
     }
 
     /**
-     * @param amount Make the car accelerate with an amount of [0,1].
+     * Increases the speed of the car by the speed factor times the argument up to a maximum of the cars' engine power.
+     * @param amount The percentage to gas with [0,1].
      */
     public void gas(double amount) {
         if(amount < 0 || amount > 1) {
@@ -119,6 +127,7 @@ abstract public class Car implements Movable{
     }
 
     /**
+     * Decreases the speed of the car by the speed factor times the argument down to a minimum of 0.
      * @param amount Make the car break with an amount of [0,1]
      */
     public void brake(double amount) {
@@ -129,6 +138,7 @@ abstract public class Car implements Movable{
     }
 
     /**
+     * Gets the model name of the car.
      * @return Returns the model name of the car.
      */
     public String getModelName() {
@@ -136,7 +146,7 @@ abstract public class Car implements Movable{
     }
 
     /**
-     * Moves the car in the current direction.
+     * Moves the car in the current direction according to its current speed.
      */
     public void move() {
         this.xPos += ((direction == 1 ? 1 : 0) - (direction == 3 ? 1 : 0))*getCurrentSpeed();
@@ -158,17 +168,28 @@ abstract public class Car implements Movable{
     }
 
     /**
-     * @return The current x position of the car.
+     * Gets the x-position of the car.
+     * @return The current x-position of the car.
      */
     public double getX() {return xPos;}
 
     /**
+     * Gets the y-position of the car.
      * @return The current y position of the car.
      */
     public double getY() {return yPos;}
 
     /**
-     * @return the direction of the car.
+     * Gets the current direction of the car.
+     *
+     * <ul>
+     *     <li>0 = North | +y</li>
+     *     <li>1 = East  | +x</li>
+     *     <li>2 = South | -y</li>
+     *     <li>3 = West  | -x</li>
+     * </ul>
+     *
+     * @return The direction of the car.
      */
     public int getDirection(){
         return direction;
