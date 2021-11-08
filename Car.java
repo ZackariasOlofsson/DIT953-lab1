@@ -35,7 +35,7 @@ abstract public class Car implements Movable{
     }
 
     /**
-     * @return Returns the number of doors on the car.
+     * @return The number of doors on the car.
      */
     // metoder
     public int getNrDoors(){
@@ -43,14 +43,14 @@ abstract public class Car implements Movable{
     }
 
     /**
-     * @return Returns the engine power of the car.
+     * @return The engine power of the car.
      */
     public double getEnginePower(){
         return enginePower; // kan ha this. men behöver inte
     }
 
     /**
-     * @return Returns the current speed of the car.
+     * @return The current speed of the car.
      */
     public double getCurrentSpeed(){
         return currentSpeed;
@@ -62,7 +62,7 @@ abstract public class Car implements Movable{
     protected void setCurrentSpeed(double speed) { currentSpeed = speed;}
 
     /**
-     * @return Returns the color of the car
+     * @return The color of the car
      */
     public Color getColor(){
         return color;
@@ -91,7 +91,7 @@ abstract public class Car implements Movable{
     }
 
     /**
-     * @return Returns the speedfactor of the car
+     * @return The speedfactor of the car
      */
     public abstract double speedFactor();
 
