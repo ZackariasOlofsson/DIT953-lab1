@@ -64,4 +64,30 @@ public class TestCar {
         double gasAmount = -0.1;
         car.gas(gasAmount);
     }
+
+    @Test
+    public void testTurnLeft(){
+        car.turnLeft();
+        assert(car.getDirection()==3);
+        car.turnLeft();
+        assert(car.getDirection()==2);
+        car.turnLeft();
+        assert(car.getDirection()==1);
+        car.turnLeft();
+        assert(car.getDirection()==0);
+    }
+
+    @Test
+    public void testTurnRight(){
+        car.turnRight();
+        assert(car.getDirection()==1);
+        car.turnRight();
+        assert(car.getDirection()==2);
+        car.turnRight();
+        assert(car.getDirection()==3);
+        car.turnRight();
+        assert(car.getDirection()==0);
+    }
+
 }
+

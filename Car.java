@@ -167,4 +167,10 @@ abstract public class Car implements Movable{
      */
     public float getY() {return yPos;}
 
+    /**
+     * @return the direction of the car.
+     */
+    public int getDirection(){
+        return direction;
+    }
 }
