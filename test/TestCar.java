@@ -4,11 +4,11 @@ import org.junit.Test;
 import java.awt.*;
 
 public class TestCar {
-    private NyVolvo car;
+    private Volvo240 car;
 
     @Before
     public void init() {
-        car = new NyVolvo();
+        car = new Volvo240();
     }
 
     @Test
@@ -121,5 +121,26 @@ public class TestCar {
         assert (car.getDirection() == 3);
         car.turnRight();
         assert (car.getDirection() == 0);
+    }
+
+    @Test
+    public void testCarMovement(){
+        car.startEngine();
+        car.gas(1);
+        car.move();
+        car.move();
+
+        car.turnLeft();
+        car.move();
+
+        car.turnRight();
+        car.turnLeft();
+        car.move();
+
+        double x = car.getX();
+        double y = car.getY();
+
+        assert x == -2.7;
+        assert y == 2.7;
     }
 }

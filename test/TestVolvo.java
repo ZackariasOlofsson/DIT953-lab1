@@ -4,11 +4,11 @@ import org.junit.Test;
 import java.awt.*;
 
 public class TestVolvo {
-    NyVolvo volvo;
+    Volvo240 volvo;
 
     @Before
     public void setup(){
-        volvo = new NyVolvo();
+        volvo = new Volvo240();
     }
 
     @Test
@@ -19,7 +19,7 @@ public class TestVolvo {
 
     @Test
     public void TestAnnanVolvo(){
-        NyVolvo annanVolvo = new NyVolvo(6, 150, Color.red, "VolvoStor");
+        Volvo240 annanVolvo = new Volvo240(6, 150, Color.red, "VolvoStor");
 
         assert(annanVolvo.getNrDoors()==6);
         assert(annanVolvo.getEnginePower()==150);

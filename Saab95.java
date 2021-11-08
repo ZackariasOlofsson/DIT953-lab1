@@ -1,78 +1,47 @@
 import java.awt.*;
 
-public class Saab95 implements CarInterface {
+/**
+ * Subklass för Saab95
+ */
+public class Saab95 extends Car{
 
-    public boolean turboOn;
-    public int nrDoors; // Number of doors on the car
-    public double enginePower; // Engine power of the car
-    public double currentSpeed; // The current speed of the car
-    public Color color; // Color of the car
-    public String modelName; // The car model name
-    
+    /**
+     * Variabler
+     */
+    private boolean turboOn = false;
+
+    /**
+     * Konstruktor för Saab95
+     */
     public Saab95(){
-        nrDoors = 2;
-        color = Color.red;
-        enginePower = 125;
-	    turboOn = false;
-        modelName = "Saab95";
-        stopEngine();
-    }
-    
-    public int getNrDoors(){
-        return nrDoors;
+        super(2,125, Color.red, "saab123");
     }
 
-    public double getEnginePower(){return enginePower; }
-
-    public double getCurrentSpeed(){
-        return currentSpeed;
+    /**
+     * @param nrDoors Number of doors on the car.
+     * @param enginePower The engine power of the car.
+     * @param color The color of the car.
+     * @param modelName The model of the car.
+     */
+    public Saab95(int nrDoors, int enginePower, Color color, String modelName) {
+        super(nrDoors, enginePower, color, modelName);
     }
 
-    public Color getColor(){
-        return color;
-    }
-
-    public void setColor(Color clr){
-	    color = clr;
-    }
-
-    public void startEngine(){
-	    currentSpeed = 0.1;
-    }
-
-    public void stopEngine(){
-	    currentSpeed = 0;
-    }
-
+    /**
+     * Starta turbo
+     */
     public void setTurboOn(){
-	    turboOn = true;
+        turboOn = true;
     }
 
+    /**
+     * Stäng av turbo
+     */
     public void setTurboOff(){
-	    turboOn = false;
-    }
-    
-    public double speedFactor(){
-        double turbo = 1;
-        if(turboOn) turbo = 1.3;
-        return enginePower * 0.01 * turbo;
+        turboOn = false;
     }
 
-    protected void incrementSpeed(double amount){
-        currentSpeed = getCurrentSpeed() + speedFactor() * amount;
-    }
-
-    protected void decrementSpeed(double amount){
-        currentSpeed = getCurrentSpeed() - speedFactor() * amount;
-    }
-    
-    // TODO fix this method according to lab pm
-    public void gas(double amount){
-        incrementSpeed(amount);
-    }
-
-    // TODO fix this method according to lab pm
-    public void brake(double amount){
-        decrementSpeed(amount);
+    public double speedFactor() {
+        return getEnginePower() * 0.01 * (turboOn ? 1.3 : 1);
     }
 }

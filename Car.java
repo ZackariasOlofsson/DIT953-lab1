@@ -13,9 +13,9 @@ abstract public class Car implements Movable{
     private double currentSpeed; // The current speed of the car
     private Color color; // Color of the car
     private final String modelName; // The car model name
-    private int direction = 0;
-    private float xPos = 0;
-    private float yPos = 0;
+    private int direction = 0; // 0 = north, 1 = east, 2 = south, 3 = west
+    private double xPos = 0;
+    private double yPos = 0;
 
 
     /**
@@ -43,7 +43,7 @@ abstract public class Car implements Movable{
      * @return The engine power of the car.
      */
     public double getEnginePower(){
-        return enginePower; // kan ha this. men behöver inte
+        return enginePower;
     }
 
     /**
@@ -139,8 +139,8 @@ abstract public class Car implements Movable{
      * Moves the car in the current direction.
      */
     public void move() {
-        this.xPos += (float) ((direction == 1 ? 1 : 0) - (direction == 3 ? 1 : 0))*getCurrentSpeed();
-        this.yPos  += (float) ((direction == 0 ? 1 : 0) - (direction == 2 ? 1 : 0))*getCurrentSpeed();
+        this.xPos += ((direction == 1 ? 1 : 0) - (direction == 3 ? 1 : 0))*getCurrentSpeed();
+        this.yPos +=((direction == 0 ? 1 : 0) - (direction == 2 ? 1 : 0))*getCurrentSpeed();
     }
 
     /**
@@ -160,12 +160,12 @@ abstract public class Car implements Movable{
     /**
      * @return The current x position of the car.
      */
-    public float getX() {return xPos;}
+    public double getX() {return xPos;}
 
     /**
      * @return The current y position of the car.
      */
-    public float getY() {return yPos;}
+    public double getY() {return yPos;}
 
     /**
      * @return the direction of the car.

@@ -4,11 +4,11 @@ import org.junit.Test;
 import java.awt.*;
 
 public class TestSaab {
-    private NySaab saab;
+    private Saab95 saab;
 
     @Before
     public void setup(){
-        saab = new NySaab();
+        saab = new Saab95();
     }
 
     @Test
@@ -37,7 +37,7 @@ public class TestSaab {
         Color c = Color.black;
         String model = "SaabSpeed";
 
-        NySaab cSaab = new NySaab(doors, enginePower, c, model);
+        Saab95 cSaab = new Saab95(doors, enginePower, c, model);
 
         assert cSaab.getNrDoors() == doors;
         assert cSaab.getColor().equals(c);

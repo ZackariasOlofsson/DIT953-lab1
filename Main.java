@@ -2,7 +2,7 @@ public class Main {
 
     // en mainmetod
     public static void main(String[] args) {
-        NyVolvo mycar = new NyVolvo();
+        Volvo240 mycar = new Volvo240();
         System.out.println(mycar.getNrDoors());
         System.out.println(mycar.getEnginePower());
 
@@ -13,6 +13,7 @@ public class Main {
         mycar.move();
         mycar.turnLeft();
         mycar.move();
+        System.out.println(mycar.getX());
         System.out.println("\n"+"Position:" + mycar.getX() +","+mycar.getY());
 
     }
