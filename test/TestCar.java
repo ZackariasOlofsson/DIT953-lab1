@@ -58,4 +58,10 @@ public class TestCar {
 
         assert car.getCurrentSpeed() == Math.min(speedEnergy + car.speedFactor()*gasAmount, car.getEnginePower());
     }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testInvalidGas() {
+        double gasAmount = -0.1;
+        car.gas(gasAmount);
+    }
 }
