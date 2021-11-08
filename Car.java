@@ -1,7 +1,7 @@
 import java.awt.*;
 
 /**
- * Super class
+ *
  */
 abstract public class Car implements Movable{
 
