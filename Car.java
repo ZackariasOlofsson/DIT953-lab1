@@ -101,29 +101,13 @@ abstract public class Car implements Movable{
 
     /**
      * Increases the speed of the car by the speed factor times the argument up to a maximum of the cars' engine power.
-     * @param amount The percentage of the speed factor to increase the speed with [0,1]
-     */
-    private void incrementSpeed(double amount){
-        setCurrentSpeed(Math.min(getCurrentSpeed() + speedFactor() * amount, getEnginePower()));
-    }
-
-    /**
-     * Decreases the speed of the car by the speed factor times the argument down to a minimum of 0.
-     * @param amount The percentage of the speed factor to decrease the speed with [0,1].
-     */
-    private void decrementSpeed(double amount){
-        setCurrentSpeed(Math.max(getCurrentSpeed() - speedFactor() * amount,0));
-    }
-
-    /**
-     * Increases the speed of the car by the speed factor times the argument up to a maximum of the cars' engine power.
      * @param amount The percentage to gas with [0,1].
      */
     public void gas(double amount) {
         if(amount < 0 || amount > 1) {
             throw new IllegalArgumentException("Incorrect interval of gas");
         }
-        incrementSpeed(amount);
+        setCurrentSpeed(Math.min(getCurrentSpeed() + speedFactor() * amount, getEnginePower()));
     }
 
     /**
@@ -134,7 +118,7 @@ abstract public class Car implements Movable{
         if(amount < 0 || amount > 1) {
             throw new IllegalArgumentException("Incorrect interval of gas");
         }
-        decrementSpeed(amount);
+        setCurrentSpeed(Math.max(getCurrentSpeed() - speedFactor() * amount,0));
     }
 
     /**
