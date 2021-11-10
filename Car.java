@@ -61,7 +61,7 @@ abstract public class Car implements Movable{
      * Sets the current speed of the car to the value of the argument.
      * @param speed The new speed of the car.
      */
-    protected void setCurrentSpeed(double speed) { currentSpeed = speed;}
+    private void setCurrentSpeed(double speed) { currentSpeed = speed;}
 
     /**
      * Gets the color of the car.
