@@ -135,18 +135,10 @@ abstract public class Car implements Movable{
     public void move() {
         double speed = getCurrentSpeed();
         switch (direction) {
-            case 0:
-                this.yPos += speed;
-                break;
-            case 1:
-                this.xPos += speed;
-                break;
-            case 2:
-                this.yPos -= speed;
-                break;
-            case 3:
-                this.xPos -= speed;
-                break;
+            case 0 -> this.yPos += speed;
+            case 1 -> this.xPos += speed;
+            case 2 -> this.yPos -= speed;
+            case 3 -> this.xPos -= speed;
         }
         //Old and ugly version
         //this.xPos += ((direction == 1 ? 1 : 0) - (direction == 3 ? 1 : 0))*getCurrentSpeed();
