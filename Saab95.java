@@ -49,6 +49,7 @@ public class Saab95 extends Car{
      * A method calculating the speed factor as a product of the engine power, engine factor and turbo factor.
      * @return The speed factor.
      */
+    @Override
     public double speedFactor() {
         return getEnginePower() * engineFactor * (turboOn ? turboOnFactor : turboOffFactor);
     }
