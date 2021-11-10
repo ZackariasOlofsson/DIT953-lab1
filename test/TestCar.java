@@ -122,6 +122,15 @@ public class TestCar {
     public void testCarMovement(){
         car.startEngine();
         car.gas(1);
+        car.turnRight();
+        car.move();
+        car.turnRight();
+        car.move();
+        car.turnRight();
+        car.move();
+        car.turnRight();
+        car.move();
+
         car.move();
         car.move();
 

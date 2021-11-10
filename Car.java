@@ -133,19 +133,37 @@ abstract public class Car implements Movable{
      * Moves the car in the current direction according to its current speed.
      */
     public void move() {
-        this.xPos += ((direction == 1 ? 1 : 0) - (direction == 3 ? 1 : 0))*getCurrentSpeed();
-        this.yPos +=((direction == 0 ? 1 : 0) - (direction == 2 ? 1 : 0))*getCurrentSpeed();
+        double speed = getCurrentSpeed();
+        switch (direction) {
+            case 0:
+                this.yPos += speed;
+                break;
+            case 1:
+                this.xPos += speed;
+                break;
+            case 2:
+                this.yPos -= speed;
+                break;
+            case 3:
+                this.xPos -= speed;
+                break;
+        }
+        //Old and ugly version
+        //this.xPos += ((direction == 1 ? 1 : 0) - (direction == 3 ? 1 : 0))*getCurrentSpeed();
+        //this.yPos += ((direction == 0 ? 1 : 0) - (direction == 2 ? 1 : 0))*getCurrentSpeed();
     }
 
     /**
-     * Turns the car 90 degrees to the left.
+     * Turns the car 90 degrees to the left. This is done by a simple modulo calculation. As the minimum value of direction should be 0 and maximum 3, adding 3 and taking
+     *      * the modulo 4 of the result will equal going one step left in the sequence {0,1,2,3}
      */
     public void turnLeft() {
-        direction = ((direction - 1) % 4 + 4) % 4;
+        direction = (direction + 3) % 4;
     }
 
     /**
-     * Turns the car 90 degrees to the right.
+     * Turns the car 90 degrees to the right. This is done by a simple modulo calculation. As the minimum value of direction should be 0 and maximum 3, adding 1 and taking
+     * the modulo 4 of the result will equal going one step right in the sequence {0,1,2,3}
      */
     public void turnRight() {
         direction = (direction + 1) % 4;
