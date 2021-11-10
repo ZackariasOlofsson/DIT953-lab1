@@ -56,7 +56,7 @@ public class TestCar {
 
     @Test
     public void TestGetModelName(){
-        String s = "Volvo240";
+        String s = "Src.Volvo240";
         assert(s.equals(car.getModelName()));
     }
 

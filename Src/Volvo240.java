@@ -1,7 +1,7 @@
 import java.awt.*;
 
 /**
- * Subclass for Volvo240
+ * Subclass for Src.Volvo240
  */
 public class Volvo240 extends Car {
 
@@ -16,7 +16,7 @@ public class Volvo240 extends Car {
      * Default constructor
      */
     public Volvo240(){
-        super(4, 100, Color.black, "Volvo240");
+        super(4, 100, Color.black, "Src.Volvo240");
     }
 
     /**
